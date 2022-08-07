@@ -1,0 +1,51 @@
+.navbar {
+    display: flex;
+    margin:1.5rem 5rem 1.5rem;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    margin-left: 2.5rem;
+    list-style-type: none;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.links {
+    display: flex;
+    align-items: center;
+
+}
+
+.links button{
+    font-size: 17px;
+    font-weight: bold;
+    width: 8rem;
+    height: 60%;
+    padding: 0.5rem 0.5rem 0.5rem;
+    background-color: #0B4870;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 0;
+    color: inherit;
+    margin-left: 1.5rem;
+}

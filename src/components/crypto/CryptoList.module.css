@@ -1,0 +1,12 @@
+
+.background {
+    background: rgb(54, 57, 59) url("./../../../public/cartographer.png");
+    color: #fff;
+    width: 100%;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-blend-mode: multiply;
+}
