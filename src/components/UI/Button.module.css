@@ -1,0 +1,13 @@
+.mybutton{
+    font-size: 17px;
+    font-weight: bold;
+    width: 8rem;
+    height: 60%;
+    padding: 0.5rem 0.5rem 0.5rem;
+    background-color: #0B4870;
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 0;
+    color: inherit;
+    margin-left: 1.5rem;
+}

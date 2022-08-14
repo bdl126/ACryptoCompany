@@ -2,7 +2,7 @@
     display: flex;
     height: 50px;
     width: 50px;
-    padding-right:2rem;
+    padding-right:3vw;
 
 
 }
@@ -14,7 +14,43 @@
 }
 
 .description {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    /* padding-left: 2rem; */
+    /* padding-right: 2rem; */
+
     text-align: left;
+
+}
+.buy {
+    height: auto;
+    background-color:  green;
+}
+
+.buy:hover {
+    background-color:  rgb(98, 194, 98);
+}
+
+.sell {
+    /* height: 4vw; */
+    background-color:  red;
+}
+
+.sell:hover {
+    background-color:  rgb(212, 112, 112);
+}
+
+.information {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.buttons {
+
+}
+
+.graph {
+    /* height: 200px; */
+    /* display: flex; */
+    /* padding-left: 2rem; */
+    justify-content: center;
 }

@@ -2,37 +2,46 @@ import { Fragment } from "react";
 import useCryptoData from "../../hooks/useCryptoData";
 import classes from "./CryptoList.module.css";
 import LoadingSpinner from "../UI/loadingSpinner";
-import { cryptoType } from "../../types";
+import { cryptoType, fullCryptoType } from "../../types";
 import CryptoCurrency from "./CryptoCurrency";
+import Card from "../cards/Card";
 
 function CryptoList() {
   const {
     isLoading,
     cryptoData,
-  }: { isLoading: boolean; cryptoData: cryptoType[] } = useCryptoData();
-
-  // console.log(123);
+  }: { isLoading: boolean; cryptoData: fullCryptoType[] } = useCryptoData();
 
   return (
-      <div className={classes.background}>
-        <div className={classes.overlay}></div>
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : (
-        cryptoData.map((crypto) => {
-          return (
-            <CryptoCurrency
-              id={crypto.id}
-              name={crypto.name}
-              atl={crypto.atl}
-              ath={crypto.ath}
-              current_price={crypto.current_price}
-              image={crypto.image}
-            />
-          );
-        })
-      )}
-    </div>
+    <div className={classes.background}>
+        <Card className={classes.sidebar}>
+        <div className={classes.topsidebar}>
+            top
+          </div>
+          <div className={classes.bottomsidebar}>
+            bottom
+          </div>
+          </Card>
+        <div className={classes.grid}>
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            cryptoData.map((crypto: fullCryptoType) => {
+              return (
+                <CryptoCurrency
+                  id={crypto.id}
+                  name={crypto.name}
+                  atl={crypto.atl}
+                  ath={crypto.ath}
+                  current_price={crypto.current_price}
+                  image={crypto.image}
+                  marketPriceData={crypto.marketPriceData}
+                />
+              );
+            })
+          )}
+        </div>
+      </div>
   );
 }
 

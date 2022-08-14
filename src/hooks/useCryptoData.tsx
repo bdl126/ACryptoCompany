@@ -1,24 +1,15 @@
 import { useEffect, useCallback, useState } from "react";
-import { httpGetCryptolist } from "./requests";
-
-interface cryptoType {
-    id: string,
-    name: string,
-    image: string,
-    current_price: number,
-    ath:number,
-    atl:number,
-
-}
+import { httpGetCryptolist, httpGetCryptoMarketData } from "./requests";
+import { cryptoType, fullCryptoType } from "../types";
 
 function useCryptoData () {
     const [isLoading, setIsLoading] = useState(false)
-    const [cryptoData, setCryptoData] = useState([])
+    const [cryptoData, setCryptoData] = useState<fullCryptoType[]>([])
 
     const getCryptoData = useCallback( async () => {
         setIsLoading(true)
         const fetchCryptoData = await httpGetCryptolist();
-        setIsLoading(false)
+
         const filteredCryptoData = fetchCryptoData.map((x:cryptoType)  => {
             return {
                 id: x.id,
@@ -29,12 +20,33 @@ function useCryptoData () {
                 image: x.image
             }
         })
-        setCryptoData(filteredCryptoData)
+
+
+        const FullyPopulateCryptoData : fullCryptoType[]= await Promise.all(filteredCryptoData.map(async (element:cryptoType) => {
+
+            const data  = await httpGetCryptoMarketData(element.id, 7)
+            const newPriceData = data.prices.map((el:Array<number>) => {
+                el[0] = new Date(el[0]).getDay()
+                return el
+            });
+            console.log(newPriceData);
+
+            return {
+                ...element,
+                marketPriceData:newPriceData
+            }
+        }));
+
+        setCryptoData(FullyPopulateCryptoData)
+
+
+        setIsLoading(false)
     }, [])
 
     useEffect(() => {
         getCryptoData();
     },[getCryptoData])
+
 
     return {
         isLoading,

@@ -3,10 +3,37 @@
     background: rgb(54, 57, 59) url("./../../../public/cartographer.png");
     color: #fff;
     width: 100%;
+    margin-top: 2rem;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     justify-content: center;
     align-items: center;
     position: relative;
     background-blend-mode: multiply;
+    height: auto;
+}
+
+
+.grid {
+    display: grid;
+    grid-area: crypto;
+    grid-template-columns:  1fr 1fr;
+    gap:2rem;
+    margin: 2rem;
+}
+
+.sidebar {
+    margin: 2rem;
+    width: 25%;
+    height: 95vh;
+    position: sticky;
+    float:right;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.topsidebar {
+    flex-grow: 1;
 }

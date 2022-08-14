@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.css";
+import Button from "../UI/Button";
+
 
 function Navbar() {
   return (
@@ -20,7 +22,7 @@ function Navbar() {
               <NavLink to="/"> Portfolio</NavLink>
             </li>
           </ul>
-          <button> Contact me</button>
+          <Button> Contact me</Button>
         </div>
       </header>
     </Fragment>

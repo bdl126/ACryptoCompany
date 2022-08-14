@@ -1,10 +1,5 @@
 .card {
-    z-index: 10;
-    opacity: 1;
-    flex-grow: 0;
-    /* display: unset; */
-    padding: 1rem;
-    margin: 2rem 5rem;
+    padding: 2rem;
     box-shadow: 2px 2px 10px #000000;
     border-radius: 8px;
     background-color: rgb(35, 39, 43);
